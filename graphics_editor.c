@@ -7,26 +7,43 @@ char canvas[ROWS][COLS];
 
 void initCanvas()
 {
-    int i, j;
+    int i,j;
 
-    for(i = 0; i < ROWS; i++)
+    for(i=0;i<ROWS;i++)
     {
-        for(j = 0; j < COLS; j++)
+        for(j=0;j<COLS;j++)
         {
-            canvas[i][j] = '_';
+            canvas[i][j]='_';
         }
+    }
+}
+
+void drawRectangle(int row,int col,int width,int height)
+{
+    int i;
+
+    for(i=col;i<col+width;i++)
+    {
+        canvas[row][i]='*';
+        canvas[row+height-1][i]='*';
+    }
+
+    for(i=row;i<row+height;i++)
+    {
+        canvas[i][col]='*';
+        canvas[i][col+width-1]='*';
     }
 }
 
 void displayCanvas()
 {
-    int i, j;
+    int i,j;
 
-    for(i = 0; i < ROWS; i++)
+    for(i=0;i<ROWS;i++)
     {
-        for(j = 0; j < COLS; j++)
+        for(j=0;j<COLS;j++)
         {
-            printf("%c", canvas[i][j]);
+            printf("%c",canvas[i][j]);
         }
         printf("\n");
     }
@@ -34,11 +51,41 @@ void displayCanvas()
 
 int main()
 {
+    int choice;
+
     initCanvas();
 
-    printf("2D Graphics Editor\n");
+    while(1)
+    {
+        printf("\n1. Display Canvas\n");
+        printf("2. Draw Rectangle\n");
+        printf("3. Exit\n");
 
-    displayCanvas();
+        printf("Enter choice: ");
+        scanf("%d",&choice);
 
-    return 0;
+        switch(choice)
+        {
+            case 1:
+                displayCanvas();
+                break;
+
+            case 2:
+            {
+                int r,c,w,h;
+
+                printf("Enter row column width height: ");
+                scanf("%d%d%d%d",&r,&c,&w,&h);
+
+                drawRectangle(r,c,w,h);
+                break;
+            }
+
+            case 3:
+                return 0;
+
+            default:
+                printf("Invalid Choice!");
+        }
+    }
 }
