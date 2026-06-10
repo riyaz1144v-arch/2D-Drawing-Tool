@@ -1,0 +1,36 @@
+Write a menu driven program for a 2d graphics editor in C using * and _.
+
+Write functions to draw objects: circle, rectangle, line, and triangle.
+You should be able to
+add objects to the picture,
+delete objects from the picture.
+Use a 2d array of characters to store the picture.
+Write a function to display the picture.
+
+Optimized tool selectionI’m checking the current C file to see whether there’s already a skeleton to extend or if I need to replace it with a complete menu-driven editor. Once I see the existing structure, I’ll implement the smallest working version and validate it locally.
+
+Read [](file:///c%3A/Users/shree/OneDrive/Desktop/ACP/mini_projects.c)
+
+Read [](file:///c%3A/Users/shree/OneDrive/Desktop/ACP)
+
+The file is empty, so I’m writing a complete standalone program rather than patching a partial skeleton. I’m using a persistent object list plus a redraw step so add/delete stays simple and the 2D character canvas always reflects the current picture.
+
+Apply Patch
+
+The first patch missed the tool’s required explanation field, so I’m resubmitting the same complete program cleanly. I’m also tightening the input flow a bit so the menu choice and shape choice stay robust.
+
+Generating patch (297 lines) in [](file:///c%3A/Users/shree/OneDrive/Desktop/ACP/mini_projects.c)
+
+
+```
+
+```
+The editor implementation is in place. I’m compiling it now so I can catch any C syntax or portability issues before I hand it back.
+
+Ran terminal command: gcc -std=c11 -Wall -Wextra -pedantic "c:\Users\shree\OneDrive\Desktop\ACP\mini_projects.c" -o "c:\Users\shree\OneDrive\Desktop\ACP\mini_projects.exe"
+
+Implemented the menu-driven 2D graphics editor in mini_projects.c. It uses a 2D character canvas filled with `_`, draws objects with `*`, and supports adding, deleting, listing, and displaying line, rectangle, circle, and triangle shapes.
+
+Validation: compiled successfully with `gcc -std=c11 -Wall -Wextra -pedantic`.
+
+Made changes.
